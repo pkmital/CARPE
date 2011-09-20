@@ -123,7 +123,7 @@
 #include "ofxGuiTypes.h"
 #include "ofQtVideoSaver.h"
 #include "ofVideoPlayer.h"
-#include "pkmEXTAudioFileReader.h"
+//#include "pkmEXTAudioFileReader.h"
 #include <ofxOpenCv.h>
 #include <opencv2/opencv.hpp>
 using namespace cv;
@@ -432,7 +432,7 @@ public:
 	int minClusterComponents, maxClusterComponents;
 
 
-    pkmEXTAudioFileReader   *audioFileReader;
+    //pkmEXTAudioFileReader   *audioFileReader;
     int                     audioFrameSize;
     
 	// detects if the gui changed, and to update the display

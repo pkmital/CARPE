@@ -205,6 +205,8 @@ void diemDROI::loadEyeTrackingMovie()
 	
 #ifdef TARGET_WIN32
 	movie_name = myOpenMovieDialog();
+	if(movie_name.empty())
+		OF_EXIT_APP(0);
 	ofDisableDataPath();
 	mov.loadMovie(movie_name);
 	ofEnableDataPath();
@@ -297,10 +299,12 @@ void diemDROI::loadEyeTrackingMovie()
 
 void diemDROI::loadEyeTrackingAudio()
 {
+	/*
     audioFileReader = new pkmEXTAudioFileReader();
     string movie_audio = "audio/" + movie_name + ".wav";
     audioFileReader->open(ofToDataPath(movie_audio));
     audioFrameSize = 44100/FPS;
+	*/
 }
 
 void diemDROI::initializeMovieOutput()

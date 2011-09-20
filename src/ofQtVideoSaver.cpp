@@ -371,9 +371,14 @@ void ofQtVideoSaver::addAudioTrack(string audioPath)
     char * p = new char[audioPath.length()+1];
     strcpy(p, audioPath.c_str());
 
-
-	FSPathMakeRef((const UInt8 *)p, &fileRef, NULL);  
-	FSGetCatalogInfo(&fileRef, kFSCatInfoNone, NULL, NULL, &fileSpec, NULL); 
+#ifdef TARGET_WIN32
+    NativePathNameToFSSpec(p, &fileSpec, 0L);
+#endif
+#ifdef TARGET_OSX
+        Boolean isdir;
+        FSPathMakeRef((const UInt8*)p, &fileRef, &isdir);
+        FSGetCatalogInfo(&fileRef, kFSCatInfoNone, NULL, NULL, &fileSpec, NULL);
+#endif
 	
     err = OpenMovieFile(&fileSpec, &audioMovieRefNum, fsRdPerm);
 

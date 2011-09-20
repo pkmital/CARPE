@@ -213,9 +213,9 @@ string myOpenMovieDialog()
 	char szFileName[MAX_PATH] = "";
 	
 	// http://msdn.microsoft.com/en-us/library/ms646839.aspx
-	OPENFILENAME ofn;
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
-	ofn.lStructSize = sizeof(OPENFILENAME);
+	OPENFILENAMEA ofn;
+	ZeroMemory(&ofn, sizeof(OPENFILENAMEA));
+	ofn.lStructSize = sizeof(OPENFILENAMEA);
 	ofn.hwndOwner = 0;
 	ofn.lpstrFilter = "Movie Files\0*.mov;*.avi;*.xvd\0All Files\0*.*\0\0";
 	ofn.lpstrFile = szFileName;
@@ -227,7 +227,7 @@ string myOpenMovieDialog()
 	ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_NOCHANGEDIR;
 	ofn.lpstrDefExt = 0;
 	
-	if(GetOpenFileName(&ofn)) {
+	if(GetOpenFileNameA(&ofn)) {
 		//loadfile(szFileName);
 		//GetCurrentDirectory( MAX_PATH, originalDirectory );
 		//SetCurrentDirectory( originalDirectory );
@@ -235,7 +235,7 @@ string myOpenMovieDialog()
 	}
 
 	//SetCurrentDirectory( originalDirectory );
-	return string("data/movie.avi");
+	return string("");
 #else
 	NavDialogCreationOptions dialogOptions;
 	OSStatus err = ::NavGetDefaultDialogCreationOptions( &dialogOptions );

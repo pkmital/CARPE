@@ -77,6 +77,18 @@
     <ClCompile Include="src\win32inputbox\Win32InputBox.cpp">
       <Filter>win32inputbox</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+      <Filter>addons\ofxXMLSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
+      <Filter>addons\ofxXMLSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+      <Filter>addons\ofxXMLSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+      <Filter>addons\ofxXMLSettings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h">
@@ -170,6 +182,12 @@
     <ClInclude Include="src\win32inputbox\Win32InputBox.h">
       <Filter>win32inputbox</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+      <Filter>addons\ofxXMLSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
+      <Filter>addons\ofxXMLSettings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="addons">
@@ -186,6 +204,9 @@
     </Filter>
     <Filter Include="win32inputbox">
       <UniqueIdentifier>{8baf31b8-2d29-42ce-831f-3810d72939d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXMLSettings">
+      <UniqueIdentifier>{26a3c514-01e7-437d-94dd-79cf2d50b6ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
