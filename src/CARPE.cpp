@@ -295,6 +295,14 @@ void diemDROI::loadEyeTrackingMovie()
 #endif
 }
 
+void diemDROI::loadEyeTrackingAudio()
+{
+    audioFileReader = new pkmEXTAudioFileReader();
+    string movie_audio = "audio/" + movie_name + ".wav";
+    audioFileReader->open(ofToDataPath(movie_audio));
+    audioFrameSize = 44100/FPS;
+}
+
 void diemDROI::initializeMovieOutput()
 {
 	saver.listCodecs();
@@ -335,7 +343,7 @@ void diemDROI::initializeMovieOutput()
 	//string f = "\\data\\output\\" + movie_name + "\\" + filename;
 	saver.setup(mov.width, mov.height, ofToDataPath(filename));	
 
-	string out_movie_audio = "data/audio/" + movie_name + ".wav";
+	string out_movie_audio = "audio/" + movie_name + ".wav";
 	saver.addAudioTrack(ofToDataPath(out_movie_audio));
 	//////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////
@@ -608,16 +616,16 @@ void diemDROI::initializeOpticalFlow(){
     //We will start at level 0 (full size image) and go down to level 4 (coarse image 16 times smaller than original)
     //Experiment with these values to see how they affect the flow field as well as calculation time
     int max_level = 8;
-    int start_level = 0;
+    int start_level = 1;
     
     //Two pre and post smoothing steps, should be greater than zero
-    int n1 = 2;
-    int n2 = 2;
+    int n1 = 3;
+    int n2 = 1;
     
     //Smoothing and regularization parameters, experiment but keep them above zero
-    float rho = 1.3;
-    float alpha = 1400;
-    float sigma = 2.0;
+    float rho = 2;
+    float alpha = 1000;
+    float sigma = 3.0;
     
    
     // motion
@@ -634,6 +642,7 @@ void diemDROI::initializeOpticalFlow(){
     opticalFlow = new VarFlow(mov.width, mov.height, max_level, start_level, n1, n2, rho, alpha, sigma);
     motion_this_img.allocate(mov.width,mov.height);
     motion_previous_img.allocate(mov.width,mov.height);
+    motion_previous_previous_img.allocate(mov.width,mov.height);
     motion_x_img.allocate(mov.width,mov.height);
     motion_y_img.allocate(mov.width,mov.height);
     motion_dist_img.allocate(mov.width,mov.height);
@@ -1372,6 +1381,7 @@ void diemDROI::updateColorFlow()
 
 	delete [] pixels;
 #else
+    motion_previous_previous_img = motion_previous_img;
     motion_previous_img = motion_this_img;
     
 	ofxCvColorImage f;
@@ -1381,7 +1391,7 @@ void diemDROI::updateColorFlow()
 	cvCvtColor(f.getCvImage(), motion_this_img.getCvImage(), CV_BGR2GRAY);
     
     // update optical flow
-    opticalFlow->CalcFlow(motion_previous_img.getCvImage(), motion_this_img.getCvImage(), 
+    opticalFlow->CalcFlow(motion_previous_previous_img.getCvImage(), motion_this_img.getCvImage(), 
                           motion_x_img.getCvImage(), motion_y_img.getCvImage(), bSaved);
     bSaved = 1;
     

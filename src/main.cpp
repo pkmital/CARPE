@@ -1,5 +1,6 @@
-#include "ofMain.h"
+
 #include "CARPE.h"
+#include "ofMain.h"
 #include "ofAppGlutWindow.h"
 
 //========================================================================

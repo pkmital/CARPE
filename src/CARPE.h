@@ -123,6 +123,7 @@
 #include "ofxGuiTypes.h"
 #include "ofQtVideoSaver.h"
 #include "ofVideoPlayer.h"
+#include "pkmEXTAudioFileReader.h"
 #include <ofxOpenCv.h>
 #include <opencv2/opencv.hpp>
 using namespace cv;
@@ -231,10 +232,11 @@ public:
 	//////////////////////////////
 	void setup();
 	//////////////////////////////
+        void loadEyeTrackingMovie();
+        void loadEyeTrackingData();
+        void loadEyeTrackingAudio();
 		void initializeOptions();
-		void loadEyeTrackingMovie();
 		void initializeGui();
-		void loadEyeTrackingData();
 		void initializeMovieOutput();
         void initializeOpticalFlow();
 	//////////////////////////////
@@ -406,7 +408,7 @@ public:
 	GPUFlow *				frameflowlib;		// drawing the whole frame's motion
 	//////////////////////////////
 #else
-    ofxCvGrayscaleImage     motion_previous_img, motion_this_img;
+    ofxCvGrayscaleImage     motion_previous_previous_img, motion_previous_img, motion_this_img;
     ofxCvFloatImage         motion_x_img, motion_y_img, motion_dist_img;
     VarFlow                 *opticalFlow;
     bool                    bSaved;
@@ -430,6 +432,9 @@ public:
 	int minClusterComponents, maxClusterComponents;
 
 
+    pkmEXTAudioFileReader   *audioFileReader;
+    int                     audioFrameSize;
+    
 	// detects if the gui changed, and to update the display
 	bool					reset;
 	
