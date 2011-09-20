@@ -253,7 +253,6 @@ void diemDROI::loadEyeTrackingMovie()
 	}
 	ofSetFrameRate(FPS);
 
-	ofSetVerticalSync(true);
 
 	// info for printing text
 	movhr = mov.getDuration()/3600.;
@@ -733,13 +732,20 @@ void diemDROI::setup(){
 		pboIds[0] = 0; pboIds[1] = 0;
 		const int DATA_SIZE = screen_width*screen_height*4;
 		const int PBO_COUNT = 2;
-		glGenBuffersARB(PBO_COUNT, pboIds);
-		glBindBufferARB(GL_PIXEL_PACK_BUFFER_ARB, pboIds[0]);
-		glBufferDataARB(GL_PIXEL_PACK_BUFFER_ARB, DATA_SIZE, 0, GL_STREAM_READ_ARB);
-		glBindBufferARB(GL_PIXEL_PACK_BUFFER_ARB, pboIds[1]);
-		glBufferDataARB(GL_PIXEL_PACK_BUFFER_ARB, DATA_SIZE, 0, GL_STREAM_READ_ARB);
-		glBindBufferARB(GL_PIXEL_PACK_BUFFER_ARB, 0);
-		
+		bVBOSupported = IsExtensionSupported( "GL_ARB_vertex_buffer_object" );
+		if( bVBOSupported )
+		{
+			glGenBuffersARB(PBO_COUNT, pboIds);
+			glBindBufferARB(GL_PIXEL_PACK_BUFFER_ARB, pboIds[0]);
+			glBufferDataARB(GL_PIXEL_PACK_BUFFER_ARB, DATA_SIZE, 0, GL_STREAM_READ_ARB);
+			glBindBufferARB(GL_PIXEL_PACK_BUFFER_ARB, pboIds[1]);
+			glBufferDataARB(GL_PIXEL_PACK_BUFFER_ARB, DATA_SIZE, 0, GL_STREAM_READ_ARB);
+			glBindBufferARB(GL_PIXEL_PACK_BUFFER_ARB, 0);
+		}
+		else
+		{
+			printf("WARNING: Graphics Hardware does not support VBO.  Movie output will be disabled.\n");
+		}
 		movieAndAlpha.allocate(mov.width,mov.height,GL_RGBA);
 		alphaScreen.allocate(mov.width,mov.height,GL_ALPHA);
 		
@@ -1681,7 +1687,7 @@ void diemDROI::draw(){
 		sprintf(reportString, "Frame: %d", frames);
 		ofDrawBitmapString(reportString, mov.width-(80 + ((int)log10((float)frames)*10)), mov.height+12);
 
-		if(showRecording && !isPaused && !doneRecording)
+		if(bVBOSupported && showRecording && !isPaused && !doneRecording)
 		{				
 			//if(mov.isFrameNew())
 			//{

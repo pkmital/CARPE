@@ -416,3 +416,34 @@ void jetColorMap(unsigned char *rgb,float value,float min,float max)
     {rgb[0]=255;rgb[1]=(unsigned char)(255-255*(value-3*max4)/max4);rgb[2]=0;}
 	else {rgb[0]=255;rgb[1]=rgb[2]=0;}
 }
+
+// from http://nehe.gamedev.net/tutorial/vertex_buffer_objects/22002/
+bool IsExtensionSupported( char* szTargetExtension )
+{
+    const unsigned char *pszExtensions = NULL;
+    const unsigned char *pszStart;
+    unsigned char *pszWhere, *pszTerminator;
+ 
+    // Extension names should not have spaces
+    pszWhere = (unsigned char *) strchr( szTargetExtension, ' ' );
+    if( pszWhere || *szTargetExtension == '\0' )
+        return false;
+ 
+    // Get Extensions String
+    pszExtensions = glGetString( GL_EXTENSIONS );
+ 
+    // Search The Extensions String For An Exact Copy
+    pszStart = pszExtensions;
+    for(;;)
+    {
+        pszWhere = (unsigned char *) strstr( (const char *) pszStart, szTargetExtension );
+        if( !pszWhere )
+            break;
+        pszTerminator = pszWhere + strlen( szTargetExtension );
+        if( pszWhere == pszStart || *( pszWhere - 1 ) == ' ' )
+            if( *pszTerminator == ' ' || *pszTerminator == '\0' )
+                return true;
+        pszStart = pszTerminator;
+    }
+    return false;
+}

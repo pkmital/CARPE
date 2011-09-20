@@ -438,6 +438,6 @@ public:
 	// detects if the gui changed, and to update the display
 	bool					reset;
 	
-	bool					bSetup;
+	bool					bSetup, bVBOSupported;
 };
 
