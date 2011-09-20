@@ -124,7 +124,7 @@ void drawLegendHSV(IplImage* imgColor, int radius, int cx, int cy)
     uchar r,g,b;
     int deltaX, deltaY;
     
-    legend_max_s = radius*sqrt(2);
+    legend_max_s = radius*sqrtf(2.0f);
     
     for(int y=0; y < imgLegend->height; y++)
     {
@@ -134,13 +134,13 @@ void drawLegendHSV(IplImage* imgColor, int radius, int cx, int cy)
         {
             deltaX = x-radius;
             deltaY = -(y-radius);
-            angle = atan2(deltaY,deltaX);
+            angle = atan2f(deltaY,deltaX);
             
             if(angle < 0)
                 angle += 2*M_PI;
             
             h = angle * 180 / M_PI;
-            s = sqrt(deltaX*deltaX + deltaY*deltaY) / legend_max_s;
+            s = sqrtf(deltaX*deltaX + deltaY*deltaY) / legend_max_s;
             v = 0.9;
             
             converthsv2rgb(h, s, v, r, g, b);

@@ -131,7 +131,7 @@ string getApplicationDirectory()
 {
 	char originalDirectory[ MAX_PATH ];
 	
-	GetCurrentDirectory( MAX_PATH, originalDirectory );
+	GetCurrentDirectoryA( MAX_PATH, originalDirectory );
 	return originalDirectory;
 }
 #endif
@@ -155,7 +155,7 @@ string myOpenFolderDialog()
 	pidl = SHBrowseForFolder(&bi);
 	if(pidl != NULL)
 	{
-		SHGetPathFromIDList(pidl, szPath);
+		SHGetPathFromIDListA(pidl, szPath);
 	
 		if(SUCCEEDED(SHGetMalloc(&pMalloc)) && pMalloc)
 		{
@@ -177,7 +177,7 @@ string myOpenIASFileDialog()
 	char szFileName[MAX_PATH] = "";
 	
 	// http://msdn.microsoft.com/en-us/library/ms646839.aspx
-	OPENFILENAME ofn;
+	OPENFILENAMEA ofn;
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = 0;
@@ -191,7 +191,7 @@ string myOpenIASFileDialog()
 	ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_NOCHANGEDIR;
 	ofn.lpstrDefExt = 0;
 	
-	if(GetOpenFileName(&ofn)) {
+	if(GetOpenFileNameA(&ofn)) {
 		//loadfile(szFileName);
 		//GetCurrentDirectory( MAX_PATH, originalDirectory );
 		//SetCurrentDirectory( originalDirectory );
