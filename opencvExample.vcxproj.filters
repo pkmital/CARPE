@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VarFlow.cpp" />
+    <ClCompile Include="src\VarFlowExtras.cpp" />
+    <ClCompile Include="src\CARPE.cpp" />
+    <ClCompile Include="src\imageStats.cpp" />
+    <ClCompile Include="src\ofQtVideoSaver.cpp" />
+    <ClCompile Include="src\pkmGaussianMixtureModel.cpp" />
+    <ClCompile Include="src\ofxGui\ofxGui.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiButton.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiColor.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiFiles.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiGlobals.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiKnob.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiMatrix.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiObject.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiPanel.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiPoints.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiRadar.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiScope.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiSlider.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiSwitch.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxGui\ofxGuiXyPad.cpp">
+      <Filter>ofxGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32inputbox\Win32InputBox.cpp">
+      <Filter>win32inputbox</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvMain.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pkmGaussianMixtureModel.h" />
+    <ClInclude Include="src\VarFlow.h" />
+    <ClInclude Include="src\VarFlowExtras.h" />
+    <ClInclude Include="src\CARPE.h" />
+    <ClInclude Include="src\imageStats.h" />
+    <ClInclude Include="src\myUtils.h" />
+    <ClInclude Include="src\ofQtVideoSaver.h" />
+    <ClInclude Include="src\ofxGui\ofxGui.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiButton.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiColor.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiFiles.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiGlobals.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiKnob.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiMatrix.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiObject.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiPanel.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiPoints.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiRadar.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiScope.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiSlider.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiSwitch.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiTypes.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGui\ofxGuiXyPad.h">
+      <Filter>ofxGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32inputbox\Win32InputBox.h">
+      <Filter>win32inputbox</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="addons">
+      <UniqueIdentifier>{d79abca0-5b91-4000-9e03-3b535f96d5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOpenCv">
+      <UniqueIdentifier>{41a2b0ca-3ef8-475b-97c2-628cf256ce13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOpenCv\src">
+      <UniqueIdentifier>{809c12a3-2279-4bd9-bbb6-c3240fd0cb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ofxGui">
+      <UniqueIdentifier>{d1b976ba-b66b-462f-a35d-2c05f02d4743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32inputbox">
+      <UniqueIdentifier>{8baf31b8-2d29-42ce-831f-3810d72939d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

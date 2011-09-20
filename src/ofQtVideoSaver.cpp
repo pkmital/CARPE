@@ -1,8 +1,6 @@
 #include "ofQtVideoSaver.h"
-#include <QuickTime/QuickTime.h>
-#include <QuickTime/QTML.h>
-#include <QuickTime/Movies.h>
-#include <QuickTime/MoviesFormat.h>
+#include "ofQtUtils.h"
+
 ofQtVideoSaver::ofQtVideoSaver (){
 	sResRefNum = 0;
 	movie = nil;
@@ -373,7 +371,7 @@ void ofQtVideoSaver::addAudioTrack(string audioPath)
     char * p = new char[audioPath.length()+1];
     strcpy(p, audioPath.c_str());
 
-    /*NativePathNameToFSSpec(p, &fileSpec, 0L);*/
+
 	FSPathMakeRef((const UInt8 *)p, &fileRef, NULL);  
 	FSGetCatalogInfo(&fileRef, kFSCatInfoNone, NULL, NULL, &fileSpec, NULL); 
 	
